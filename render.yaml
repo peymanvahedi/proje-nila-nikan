@@ -1,0 +1,55 @@
+
+services:
+  - type: web
+    name: medusa-server
+    env: node
+    region: frankfurt
+    buildCommand: |
+      cd apps/backend && npm ci && npx medusa build && cd .medusa/server && npm ci
+    startCommand: |
+      cd apps/backend/.medusa/server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: ADMIN_CORS
+        sync: false
+      - key: STORE_CORS
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: COOKIE_SECRET
+        generateValue: true
+
+  - type: worker
+    name: medusa-worker
+    env: node
+    region: frankfurt
+    buildCommand: |
+      cd apps/backend && npm ci && npx medusa build && cd .medusa/server && npm ci
+    startCommand: |
+      cd apps/backend/.medusa/server && WORKER_MODE=worker npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+
+  - type: web
+    name: medusa-storefront
+    env: node
+    region: frankfurt
+    buildCommand: |
+      cd apps/storefront && npm ci && npm run build
+    startCommand: |
+      cd apps/storefront && npm start
+    envVars:
+      - key: NEXT_PUBLIC_MEDUSA_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
