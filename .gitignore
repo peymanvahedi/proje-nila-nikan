@@ -9,3 +9,5 @@ apps/*/.env.local
 apps/*/.env.*
 .DS_Store
 Thumbs.db
+
+*.zip
