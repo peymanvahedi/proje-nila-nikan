@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "url": "/uploads/stories/s1.jpg",
+      "createdAt": "2025-08-30T12:00:00Z"
+    },
+    {
+      "id": "2",
+      "url": "/uploads/stories/s2.jpg",
+      "createdAt": "2025-08-30T12:05:00Z"
+    },
+    {
+      "id": "3",
+      "url": "/uploads/stories/s3.jpg",
+      "createdAt": "2025-08-30T12:10:00Z"
+    }
+  ]
+}

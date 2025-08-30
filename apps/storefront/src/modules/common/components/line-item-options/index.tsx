@@ -12,13 +12,15 @@ const LineItemOptions = ({
   "data-testid": dataTestid,
   "data-value": dataValue,
 }: LineItemOptionsProps) => {
+  if (!variant?.title) return null
+
   return (
     <Text
       data-testid={dataTestid}
       data-value={dataValue}
-      className="inline-block txt-medium text-ui-fg-subtle w-full overflow-hidden text-ellipsis"
+      className="inline-block txt-medium text-ui-fg-subtle w-full overflow-hidden text-ellipsis text-right"
     >
-      Variant: {variant?.title}
+      نوع: {variant.title}
     </Text>
   )
 }

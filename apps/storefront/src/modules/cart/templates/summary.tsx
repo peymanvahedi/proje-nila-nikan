@@ -27,19 +27,25 @@ function getCheckoutStep(cart: HttpTypes.StoreCart) {
 const Summary = ({ cart }: SummaryProps) => {
   const step = getCheckoutStep(cart)
 
+  if (!cart) return null
+
   return (
-    <div className="flex flex-col gap-y-4">
-      <Heading level="h2" className="text-[2rem] leading-[2.75rem]">
-        Summary
+    <div className="bg-white rounded-2xl shadow-sm border p-6 space-y-4 text-right">
+      <Heading level="h2" className="text-2xl font-semibold">
+        خلاصهٔ سفارش
       </Heading>
+
       <DiscountCode cart={cart} />
+
       <Divider />
+
       <CartTotals totals={cart} />
+
       <LocalizedClientLink
         href={"/checkout?step=" + step}
         data-testid="checkout-button"
       >
-        <Button className="w-full h-10">Go to checkout</Button>
+        <Button className="w-full h-10">ادامهٔ تسویه‌حساب</Button>
       </LocalizedClientLink>
     </div>
   )

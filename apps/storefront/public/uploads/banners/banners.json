@@ -1,0 +1,6 @@
+{
+  "slides": [
+    { "src": "/uploads/banners/hero1.jpg", "alt": "بنر ۱", "w": 1920, "h": 425 },
+    { "src": "/uploads/banners/hero2.jpg", "alt": "بنر ۲", "w": 1920, "h": 425 }
+  ]
+}

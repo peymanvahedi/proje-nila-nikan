@@ -6,6 +6,11 @@ export function middleware(req: NextRequest) {
   const url = req.nextUrl
   const path = url.pathname
 
+  // استثناء برای مسیر /admin/stories
+  if (path.startsWith("/admin/stories")) {
+    return NextResponse.next() // اجازه می‌دهد این مسیر بدون تغییر بماند
+  }
+
   // مسیرهای سیستمی/استاتیک را دست‌نزن
   if (
     path.startsWith("/_next") ||
